@@ -1,0 +1,240 @@
+:root {
+  --clr-primary: rgb(248, 248, 132);
+}
+
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+nav {
+  padding: 10px 80px;
+  border-radius: 0 0 100% 100%;
+  background-color: rgb(236, 158, 106);
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2em;
+  transform: translateY(-50%);
+}
+
+.container {
+  padding: 80px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 100px;
+
+  .tagline {
+    width: 100%;
+    transform: translateX(-50%);
+    opacity: 0;
+
+    h1 {
+      font-size: 45px;
+      margin-top: 0;
+    }
+
+    p {
+      font-size: 32px;
+    }
+  }
+
+  .img-header {
+    width: 100%;
+    height: 200px;
+    max-width: 700px;
+    opacity: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateX(100%);
+    transition: transform 500ms ease;
+
+    img {
+      width: 100%;
+      transform: translateY(-20%);
+      transition: transform 800ms ease;
+      &:hover {
+        transform: scale(1.1) translateY(-18%);
+        transform-origin: center;
+      }
+    }
+  }
+}
+
+.tips {
+  h2 {
+    text-align: center;
+    font-size: 36px;
+    transform: translateX(-70%);
+  }
+
+  ul {
+    padding: 0;
+
+    .tips-item {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      height: 300px;
+      padding: 40px 0;
+      list-style: none;
+      // text-align: center;
+      // padding: 0 25px;
+
+      &:nth-child(1) {
+        .tips-description {
+          transform: translateX(-20%);
+
+          i {
+            color: rgb(250, 203, 93);
+          }
+        }
+
+        .tips-img {
+          transform: translateX(30%);
+        }
+      }
+
+      &:nth-child(2) {
+        .tips-description {
+          transform: translateX(30%);
+
+          i {
+            color: rgb(100, 100, 255);
+          }
+        }
+
+        .tips-img {
+          transform: translateX(-30%);
+        }
+      }
+
+      &:nth-child(3) {
+        .tips-description {
+          transform: translateX(-30%);
+
+          i {
+            color: rgb(84, 231, 84);
+          }
+        }
+
+        .tips-img {
+          transform: translateX(30%);
+        }
+      }
+
+      .tips-description {
+        width: 100%;
+        text-align: center;
+        h3 {
+          font-size: 2em;
+          margin: 10px 0 0;
+          position: relative;
+
+          &::after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--clr-primary);
+          }
+        }
+
+        i {
+          font-size: 50px;
+          margin: 20px 0;
+        }
+
+        p {
+          font-size: 1.3em;
+          margin: 0;
+        }
+      }
+
+      .tips-img {
+        order: 0;
+        width: 100%;
+        height: 250px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+        img {
+          width: 100%;
+        }
+
+        &:nth-child(2) {
+          img {
+            transform: translateY(-30%);
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  padding: 10px 0;
+  font-size: 1.8em;
+  text-align: center;
+  background-color: var(--clr-primary);
+  border-radius: 100% 100% 0 0;
+  transform: translateY(50%);
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    font-size: 0.8em;
+  }
+
+  // header {
+  //   flex-direction: row;
+  //   .tagline {
+  //     width: 30%;
+  //   }
+
+  //   .img-header {
+  //     width: 40%;
+  //   }
+  // }
+}
+
+@media only screen and (min-width: 768px) {
+  // body {
+  //   font-size: 1.1em;
+  // }
+  header {
+    flex-direction: row;
+    .tagline {
+      width: 40%;
+    }
+
+    .img-header {
+      width: 55%;
+      height: 400px;
+    }
+  }
+
+  .tips {
+    ul {
+      .tips-item {
+        flex-direction: row;
+
+        &:nth-child(2) {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+  }
+}

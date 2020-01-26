@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/a707598919.js" crossorigin="anonymous"></script>
+  <title>Responsive</title>
+</head>
+
+<body onload="animate()" onscroll="scrollAnimate(window.pageYOffset)">
+  <nav>
+    <h1>Shiny</h1>
+  </nav>
+  <section>
+    <div class="container">
+      <header>
+        <div class="tagline">
+          <h1>Good Morning, Fellas</h1>
+          <p>
+            Start your day with smile on your face and jump throughot your
+            window and landing on your pool
+          </p>
+        </div>
+        <div class="img-header">
+          <img src="img/jenny-caywood-p1qmRqQUaK8-unsplash.jpg" alt="" />
+        </div>
+      </header>
+      <div class="tips">
+        <h2 id="tips-header">Some Tips For Your Happy Morning</h2>
+        <ul>
+          <li class="tips-item">
+            <div class="tips-description">
+              <h3>Pray to Allah</h3>
+              <i class="fas fa-hands"></i>
+              <p>
+                Pray make your heart full of piece to face up to crazy day
+              </p>
+            </div>
+            <div class="tips-img">
+              <img src="img/luis-quintero-GxbSGdRXjzM-unsplash.jpg" alt="Photo by Luis Quintero on Unsplash" />
+            </div>
+          </li>
+          <li class="tips-item">
+            <div class="tips-description">
+              <h3>Take A Glass of Water</h3>
+              <i class="fas fa-tint"></i>
+              <p>A Full Glass of Water make your energy refilled</p>
+            </div>
+            <div class="tips-img">
+              <img src="img/kobu-agency-TWIRIAizZFU-unsplash.jpg" alt="Photo by Kobu Agency on Unsplash" />
+            </div>
+          </li>
+          <li class="tips-item">
+            <div class="tips-description">
+              <h3>Get Prepare for Fajr</h3>
+              <i class="fas fa-shoe-prints"></i>
+              <p>
+                Take Wudhu, Take the koko, and step your feet to the mosque
+              </p>
+            </div>
+            <div class="tips-img">
+              <img src="img/mrjn-photography-YpZ2cj4s0oo-unsplash.jpg" alt="Photo by mrjn Photography on Unsplash" />
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <h2>Start Your Day with Gratitude</h2>
+  </footer>
+  <script>
+    const animate = () => {
+      const nav = document.querySelector("nav");
+      nav.style.transform = "translateY(0)";
+      nav.style.backgroundColor = "rgb(253, 253, 156)";
+      nav.style.transition = "all 1200ms ease-out";
+      nav.style.transitionDelay = "500ms";
+
+      const imgHeader = document.querySelector(".img-header");
+      imgHeader.style.transform = "translateX(0)";
+      imgHeader.style.opacity = "1";
+      imgHeader.style.transition = "all 800ms ease-out";
+      imgHeader.style.transitionDelay = "2000ms";
+
+      const tagline = document.querySelector(".tagline");
+      tagline.style.transform = "translateX(0)";
+      tagline.style.opacity = "1";
+      tagline.style.transition = "all 800ms ease-out";
+      tagline.style.transitionDelay = "2000ms";
+    };
+
+    const scrollAnimate = Yoffset => {
+      if (Yoffset > 10) {
+        const tipsHeader = document.querySelector("#tips-header");
+        tipsHeader.style.transform = "translateX(0)";
+        tipsHeader.style.transition = "transform 600ms ease-in-out";
+        tipsHeader.style.transitionDelay = "100ms";
+      }
+
+      const tipsDescription = document.querySelectorAll(".tips-description");
+      const tipsImg = document.querySelectorAll(".tips-img");
+      const tipsAnimation = (elm, delayTime) => {
+        elm.style.transform = "translateX(0)";
+        elm.style.transition = "transform 800ms ease-in-out";
+        elm.style.transitionDelay = `${delayTime}ms`;
+      };
+
+      for (let i = 0; i < tipsDescription.length; i++) {
+        if (Yoffset > 200 + 100 * (i + 2)) {
+          tipsAnimation(tipsDescription[i], 100);
+          tipsAnimation(tipsImg[i], 100);
+        }
+      }
+
+      if (Yoffset > 700) {
+        const footer = document.querySelector("footer");
+        footer.style.transform = "translateY(0)";
+        footer.style.backgroundColor = "rgb(253, 253, 156)";
+        footer.style.transition = "all 1200ms ease-out";
+        footer.style.transitionDelay = "500ms";
+      }
+    };
+  </script>
+</body>
+
+</html>
